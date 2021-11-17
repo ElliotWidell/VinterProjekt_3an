@@ -15,6 +15,7 @@ namespace VinterProjekt_3an
             {
 
                 Raylib.BeginDrawing();
+                Raylib.SetTargetFPS(60);
                 Raylib.ClearBackground(Color.GREEN);
 
 
