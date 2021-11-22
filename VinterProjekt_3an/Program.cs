@@ -10,24 +10,35 @@ namespace VinterProjekt_3an
         static void Main(string[] args)
         {
 
+            Player mePlayer = new Player();
+            enemy firstEnemy = new enemy();
+
+
+
+
             Raylib.InitWindow(1600, 900, "Vinter");
+            Raylib.SetTargetFPS(60);
+
             while (!Raylib.WindowShouldClose())
             {
 
+                mePlayer.Update();
+
                 Raylib.BeginDrawing();
-                Raylib.SetTargetFPS(60);
                 Raylib.ClearBackground(Color.GREEN);
+
+                mePlayer.playerchar();
+                firstEnemy.enemyvectors();
+
+
+
+
+
+
+
 
 
                 Raylib.EndDrawing();
-
-
-
-
-
-
-
-
             }
 
 

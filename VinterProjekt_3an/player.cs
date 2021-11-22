@@ -1,12 +1,50 @@
 using System;
+using Raylib_cs;
 
 namespace VinterProjekt_3an
 {
-    public class player
+    public class Player
     {
-        public int playerX = 0;
-        public int playerY = 0;
+        public float playerX = 0;
+        public float playerY = 0;
 
-        if(Raylib.IsKeyDown)
+
+        public void playerchar()
+        {
+
+
+            Raylib.DrawCircle((int)playerX, (int)playerY, 40, Color.BLUE);
+
+
+        }
+        public void Update()
+        {
+
+
+
+
+            if (Raylib.IsKeyDown(KeyboardKey.KEY_W))
+            {
+                playerY -= 4;
+
+            }
+
+            if (Raylib.IsKeyDown(KeyboardKey.KEY_S))
+            {
+                playerY += 4;
+
+            }
+
+            if (Raylib.IsKeyDown(KeyboardKey.KEY_A))
+            {
+                playerX -= 4;
+
+            }
+            if (Raylib.IsKeyDown(KeyboardKey.KEY_D))
+            {
+                playerX += 4;
+
+            }
+        }
     }
 }
