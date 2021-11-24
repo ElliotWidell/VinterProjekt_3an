@@ -8,6 +8,8 @@ namespace VinterProjekt_3an
         public float playerX = 0;
         public float playerY = 0;
 
+        public Boolean isAlive = true;
+
 
         public void playerchar()
         {
@@ -19,6 +21,9 @@ namespace VinterProjekt_3an
         }
         public void Update()
         {
+
+
+            //Raylib.CheckCollisionCircles()
 
 
 

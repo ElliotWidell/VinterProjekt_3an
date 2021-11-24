@@ -8,22 +8,28 @@ namespace VinterProjekt_3an
     public class enemy
     {
 
-        public float enemyX = 1200;
-        public float enemyY = 800;
+        public Vector2 position = new Vector2(1200, 600);
         public void enemyvectors(float playerX, float playerY)
         {
 
-            Raylib.DrawCircle((int)enemyX, (int)enemyY, 40, Color.RED);
 
-            Vector2 enemyVec = new Vector2(enemyX, enemyY);
+
+
             Vector2 playerVec = new Vector2(playerX, playerY);
-            Vector2 difference = playerVec - enemyVec;
+            Vector2 difference = playerVec - position;
             difference = Vector2.Normalize(difference);
-            enemyVec += difference * 1.5f;
+            position += difference * 1.5f;
+
+
+            Raylib.DrawCircleV(position, 40, Color.RED);
 
 
         }
 
+        public void Update()
+        {
+
+        }
 
 
 

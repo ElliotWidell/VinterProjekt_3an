@@ -21,14 +21,32 @@ namespace VinterProjekt_3an
 
             while (!Raylib.WindowShouldClose())
             {
-
-                mePlayer.Update();
-
                 Raylib.BeginDrawing();
-                Raylib.ClearBackground(Color.GREEN);
 
-                mePlayer.playerchar();
-                firstEnemy.enemyvectors();
+                if (mePlayer.isAlive)
+                {
+                    mePlayer.Update();
+
+
+
+
+
+
+
+
+                    Raylib.ClearBackground(Color.GREEN);
+
+                    mePlayer.playerchar();
+                    firstEnemy.enemyvectors(mePlayer.playerX, mePlayer.playerY);
+
+
+                    if (Raylib.IsKeyDown(KeyboardKey.KEY_K))
+                    {
+                        mePlayer.isAlive = false;
+                    }
+
+
+                }
 
 
 

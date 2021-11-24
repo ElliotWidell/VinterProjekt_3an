@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\elliot.widell\\Desktop\\Programering\\VinterProjekt_3an\\VinterProjekt_3an\\VinterProjekt_3an.csproj": {}
+    "C:\\Users\\elliot.widell\\Desktop\\A prog i 3an\\VinterProjekt_3an\\VinterProjekt_3an\\VinterProjekt_3an.csproj": {}
   },
   "projects": {
-    "C:\\Users\\elliot.widell\\Desktop\\Programering\\VinterProjekt_3an\\VinterProjekt_3an\\VinterProjekt_3an.csproj": {
+    "C:\\Users\\elliot.widell\\Desktop\\A prog i 3an\\VinterProjekt_3an\\VinterProjekt_3an\\VinterProjekt_3an.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\elliot.widell\\Desktop\\Programering\\VinterProjekt_3an\\VinterProjekt_3an\\VinterProjekt_3an.csproj",
+        "projectUniqueName": "C:\\Users\\elliot.widell\\Desktop\\A prog i 3an\\VinterProjekt_3an\\VinterProjekt_3an\\VinterProjekt_3an.csproj",
         "projectName": "VinterProjekt_3an",
-        "projectPath": "C:\\Users\\elliot.widell\\Desktop\\Programering\\VinterProjekt_3an\\VinterProjekt_3an\\VinterProjekt_3an.csproj",
+        "projectPath": "C:\\Users\\elliot.widell\\Desktop\\A prog i 3an\\VinterProjekt_3an\\VinterProjekt_3an\\VinterProjekt_3an.csproj",
         "packagesPath": "C:\\Users\\elliot.widell\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\elliot.widell\\Desktop\\Programering\\VinterProjekt_3an\\VinterProjekt_3an\\obj\\",
+        "outputPath": "C:\\Users\\elliot.widell\\Desktop\\A prog i 3an\\VinterProjekt_3an\\VinterProjekt_3an\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\elliot.widell\\AppData\\Roaming\\NuGet\\NuGet.Config"
