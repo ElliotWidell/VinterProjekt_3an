@@ -1,3 +1,4 @@
+
 using System;
 using Raylib_cs;
 using System.Collections.Generic;
@@ -5,10 +6,59 @@ using System.Numerics;
 
 namespace VinterProjekt_3an
 {
-    public class enemy
+    public class Enemy
     {
 
-        public Vector2 position = new Vector2(1200, 600);
+        Random generator = new Random();
+        public int rSide;
+        public int spawnPosX;
+        public int spawnPosY;
+        public int randomSpawnRatec;
+        public int spawnRate = 600;
+
+        public static List<Enemy> enemies = new List<Enemy>();
+
+
+        public Vector2 position;
+
+        public Enemy()
+        {
+
+            enemies.Add(this);
+            rSide = generator.Next(4);
+
+            if (rSide == 0)
+            {
+                spawnPosX = generator.Next(0, 1600);
+                spawnPosY = 0;
+            }
+
+
+            if (rSide == 1)
+            {
+                spawnPosX = generator.Next(0, 1600);
+                spawnPosY = 900;
+            }
+
+            if (rSide == 2)
+            {
+                spawnPosY = generator.Next(0, 900);
+                spawnPosX = 0;
+
+            }
+
+            if (rSide == 3)
+            {
+                spawnPosY = generator.Next(0, 900);
+                spawnPosX = 1600;
+
+            }
+
+            position = new Vector2(spawnPosX, spawnPosY);
+
+
+        }
+
         public void enemyvectors(float playerX, float playerY)
         {
 
@@ -28,6 +78,8 @@ namespace VinterProjekt_3an
 
         public void Update()
         {
+
+            randomSpawnRate = generator.Next(spawnrate);
 
         }
 

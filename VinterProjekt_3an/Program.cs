@@ -11,7 +11,12 @@ namespace VinterProjekt_3an
         {
 
             Player mePlayer = new Player();
-            enemy firstEnemy = new enemy();
+            Enemy firstEnemy = new Enemy();
+
+            Random generator = new Random();
+            int enemySpawnRate = generator.Next();
+
+
 
 
 
@@ -38,6 +43,7 @@ namespace VinterProjekt_3an
 
                     mePlayer.playerchar();
                     firstEnemy.enemyvectors(mePlayer.playerX, mePlayer.playerY);
+
 
 
                     if (Raylib.IsKeyDown(KeyboardKey.KEY_K))

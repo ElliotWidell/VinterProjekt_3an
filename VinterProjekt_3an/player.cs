@@ -1,4 +1,5 @@
 using System;
+using System.Numerics;
 using Raylib_cs;
 
 namespace VinterProjekt_3an
@@ -24,28 +25,33 @@ namespace VinterProjekt_3an
 
 
             //Raylib.CheckCollisionCircles()
+            Vector2 playerPos = new Vector2(playerX, playerY);
+            if (Raylib.CheckCollisionCircles(playerPos, 40, Enemy.enemies[0].position, 40))
+            {
+                isAlive = false;
+            }
 
 
 
 
-            if (Raylib.IsKeyDown(KeyboardKey.KEY_W))
+            if (Raylib.IsKeyDown(KeyboardKey.KEY_W) && isAlive)
             {
                 playerY -= 4;
 
             }
 
-            if (Raylib.IsKeyDown(KeyboardKey.KEY_S))
+            if (Raylib.IsKeyDown(KeyboardKey.KEY_S) && isAlive)
             {
                 playerY += 4;
 
             }
 
-            if (Raylib.IsKeyDown(KeyboardKey.KEY_A))
+            if (Raylib.IsKeyDown(KeyboardKey.KEY_A) && isAlive)
             {
                 playerX -= 4;
 
             }
-            if (Raylib.IsKeyDown(KeyboardKey.KEY_D))
+            if (Raylib.IsKeyDown(KeyboardKey.KEY_D) && isAlive)
             {
                 playerX += 4;
 
