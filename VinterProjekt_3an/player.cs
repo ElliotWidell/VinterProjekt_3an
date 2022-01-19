@@ -1,14 +1,16 @@
 using System;
 using System.Numerics;
+using System.Collections.Generic;
 using Raylib_cs;
 
 namespace VinterProjekt_3an
 {
     public class Player
     {
-        public float playerX = 0;
-        public float playerY = 0;
+        public float playerX = 800;
+        public float playerY = 450;
 
+        Vector2 mouseAimVector = new Vector2(0, 0);
         public Boolean isAlive = true;
 
 
@@ -22,6 +24,9 @@ namespace VinterProjekt_3an
         }
         public void Update()
         {
+
+            Vector2 mouseAimVector = Raylib.GetMousePosition();
+            Console.WriteLine(mouseAimVector);
 
 
             //Raylib.CheckCollisionCircles()

@@ -10,11 +10,13 @@ namespace VinterProjekt_3an
         static void Main(string[] args)
         {
 
+
+            int difficulty = 100;
+
             Player mePlayer = new Player();
             Enemy firstEnemy = new Enemy();
 
             Random generator = new Random();
-            int enemySpawnRate = generator.Next();
 
 
 
@@ -32,6 +34,7 @@ namespace VinterProjekt_3an
                 {
                     mePlayer.Update();
 
+                    int enemySpawnRate = generator.Next(0, difficulty);
 
 
 
@@ -42,7 +45,19 @@ namespace VinterProjekt_3an
                     Raylib.ClearBackground(Color.GREEN);
 
                     mePlayer.playerchar();
-                    firstEnemy.enemyvectors(mePlayer.playerX, mePlayer.playerY);
+
+                    foreach (Enemy e in Enemy.enemies)
+                    {
+                        e.Update(mePlayer.playerX, mePlayer.playerY);
+                    }
+
+                    firstEnemy.Update(mePlayer.playerX, mePlayer.playerY);
+
+                    if (enemySpawnRate == 1)
+                    {
+                        Console.WriteLine("Fungerar");
+                        new Enemy();
+                    }
 
 
 

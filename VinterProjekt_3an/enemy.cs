@@ -13,7 +13,6 @@ namespace VinterProjekt_3an
         public int rSide;
         public int spawnPosX;
         public int spawnPosY;
-        public int randomSpawnRatec;
         public int spawnRate = 600;
 
         public static List<Enemy> enemies = new List<Enemy>();
@@ -59,7 +58,7 @@ namespace VinterProjekt_3an
 
         }
 
-        public void enemyvectors(float playerX, float playerY)
+        public void Update(float playerX, float playerY)
         {
 
 
@@ -73,13 +72,6 @@ namespace VinterProjekt_3an
 
             Raylib.DrawCircleV(position, 40, Color.RED);
 
-
-        }
-
-        public void Update()
-        {
-
-            randomSpawnRate = generator.Next(spawnrate);
 
         }
 
