@@ -61,7 +61,7 @@ namespace VinterProjekt_3an
 
 
 
-                    if (Raylib.IsKeyDown(KeyboardKey.KEY_K))
+                    if (Raylib.IsKeyDown(KeyboardKey.KEY_K))     // trycka K dödar mig bara för att testa död grejer
                     {
                         mePlayer.isAlive = false;
                     }
