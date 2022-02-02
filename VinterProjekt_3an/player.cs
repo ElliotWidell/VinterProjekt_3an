@@ -29,9 +29,9 @@ namespace VinterProjekt_3an
             Console.WriteLine(mouseAimVector);
 
 
-            //Raylib.CheckCollisionCircles()
+
             Vector2 playerPos = new Vector2(playerX, playerY);
-            if (Raylib.CheckCollisionCircles(playerPos, 40, Enemy.enemies[0].position, 40))
+            if (Raylib.CheckCollisionCircles(playerPos, 40, Enemy.enemies[0].position, 40))   // Kollar collision
             {
                 isAlive = false;
             }
@@ -39,7 +39,7 @@ namespace VinterProjekt_3an
 
 
 
-            if (Raylib.IsKeyDown(KeyboardKey.KEY_W) && isAlive)
+            if (Raylib.IsKeyDown(KeyboardKey.KEY_W) && isAlive)   // Movement if satser
             {
                 playerY -= 4;
 

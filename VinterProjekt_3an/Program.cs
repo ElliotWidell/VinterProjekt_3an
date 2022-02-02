@@ -15,6 +15,7 @@ namespace VinterProjekt_3an
 
             Player mePlayer = new Player();
             Enemy firstEnemy = new Enemy();
+            List<Bullet> bullets = new List<Bullet>();
 
             Random generator = new Random();
 
@@ -32,6 +33,32 @@ namespace VinterProjekt_3an
 
                 if (mePlayer.isAlive)
                 {
+
+
+                    //kod för alla kulor
+
+
+
+                    if (Raylib.IsKeyPressed(KeyboardKey.KEY_SPACE))
+                    {
+                        bullets.Add(new Bullet(mePlayer.playerX, mePlayer.playerY));
+
+                    }
+
+                    foreach (Bullet e in bullets)
+                    {
+
+
+
+                    }
+
+
+
+
+
+
+
+
                     mePlayer.Update();
 
                     int enemySpawnRate = generator.Next(0, difficulty);
