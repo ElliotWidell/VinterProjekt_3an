@@ -15,7 +15,7 @@ namespace VinterProjekt_3an
         public int spawnPosY;
         public int spawnRate = 600;
 
-        public static List<Enemy> enemies = new List<Enemy>();
+        public static List<Enemy> enemies = new List<Enemy>();     //lista över alla fieder
 
 
         public Vector2 position;
@@ -24,12 +24,12 @@ namespace VinterProjekt_3an
         {
 
             enemies.Add(this);
-            rSide = generator.Next(4);
+            rSide = generator.Next(4);   // random generator som bestämmer vilken av de 4 olika sidorna som fienden ska spawna på
 
             if (rSide == 0)
             {
-                spawnPosX = generator.Next(0, 1600);
-                spawnPosY = 0;
+                spawnPosX = generator.Next(0, 1600);   // Bestämmer värdet på X positionen vilket bestämmer hur högt upp fienden spawnar längs den västra sidan
+                spawnPosY = 0;     // eftersom rSide blev 0 så komemr fienden att spawna vid Y=0 så den kommer att spawna längs den vänstra sidan
             }
 
 
@@ -53,7 +53,7 @@ namespace VinterProjekt_3an
 
             }
 
-            position = new Vector2(spawnPosX, spawnPosY);
+            position = new Vector2(spawnPosX, spawnPosY);     // här ges fienden sin spawn position beroende på vilken av if satserna som kördes
 
 
         }
@@ -64,7 +64,7 @@ namespace VinterProjekt_3an
 
 
 
-            Vector2 playerVec = new Vector2(playerX, playerY);
+            Vector2 playerVec = new Vector2(playerX, playerY);   // tar fiendens position och spelarens position och får fienden att 
             Vector2 difference = playerVec - position;
             difference = Vector2.Normalize(difference);
             position += difference * 1.5f;

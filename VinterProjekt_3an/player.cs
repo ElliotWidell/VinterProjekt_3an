@@ -18,14 +18,14 @@ namespace VinterProjekt_3an
         {
 
 
-            Raylib.DrawCircle((int)playerX, (int)playerY, 40, Color.BLUE);
+            Raylib.DrawCircle((int)playerX, (int)playerY, 40, Color.BLUE);    // karaktärens cirkel
 
 
         }
         public void Update()
         {
 
-            Vector2 mouseAimVector = Raylib.GetMousePosition();
+            Vector2 mouseAimVector = Raylib.GetMousePosition();   // tar musens position för att veta vart kulorna ska
             Console.WriteLine(mouseAimVector);
 
 

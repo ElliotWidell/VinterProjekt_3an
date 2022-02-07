@@ -15,7 +15,7 @@ namespace VinterProjekt_3an
 
             Player mePlayer = new Player();
             Enemy firstEnemy = new Enemy();
-            List<Bullet> bullets = new List<Bullet>();
+            List<Bullet> bullets = new List<Bullet>();   // listor över alla kulor
 
             Random generator = new Random();
 
@@ -24,7 +24,7 @@ namespace VinterProjekt_3an
 
 
 
-            Raylib.InitWindow(1600, 900, "Vinter");
+            Raylib.InitWindow(1600, 900, "Vinter");    //skapar fönster och sätter frame rate
             Raylib.SetTargetFPS(60);
 
             while (!Raylib.WindowShouldClose())
@@ -39,17 +39,16 @@ namespace VinterProjekt_3an
 
 
 
-                    if (Raylib.IsKeyPressed(KeyboardKey.KEY_SPACE))
+                    if (Raylib.IsKeyPressed(KeyboardKey.KEY_SPACE))     // skapar kulorna 
                     {
                         bullets.Add(new Bullet(mePlayer.playerX, mePlayer.playerY));
 
                     }
 
-                    foreach (Bullet e in bullets)
+                    foreach (Bullet e in bullets)       //Uppdaterar info om alla kulor
                     {
-
-
-
+                        e.Update();
+                        e.Draw();
                     }
 
 
@@ -59,7 +58,7 @@ namespace VinterProjekt_3an
 
 
 
-                    mePlayer.Update();
+                    mePlayer.Update();    //kör update metoden så att karaktären flyttas varje frame
 
                     int enemySpawnRate = generator.Next(0, difficulty);
 
@@ -71,18 +70,18 @@ namespace VinterProjekt_3an
 
                     Raylib.ClearBackground(Color.GREEN);
 
-                    mePlayer.playerchar();
+                    mePlayer.playerchar();   // ritar ut karaktären varje frame
 
                     foreach (Enemy e in Enemy.enemies)
                     {
-                        e.Update(mePlayer.playerX, mePlayer.playerY);
+                        e.Update(mePlayer.playerX, mePlayer.playerY);    //loop som uppdaterar infon om alla fiender
                     }
 
                     firstEnemy.Update(mePlayer.playerX, mePlayer.playerY);
 
                     if (enemySpawnRate == 1)
                     {
-                        Console.WriteLine("Fungerar");
+                        Console.WriteLine("Fungerar");      // kontrollerar hur ofta fiender spawnar
                         new Enemy();
                     }
 

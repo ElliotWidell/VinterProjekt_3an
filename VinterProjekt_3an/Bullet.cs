@@ -9,9 +9,7 @@ namespace VinterProjekt_3an
     {
 
         public Vector2 bulletPos;
-        public Vector2 mousePos;
-
-        private Vector2 target;
+        public Vector2 target;
 
         private Vector2 movement;
 
@@ -19,18 +17,18 @@ namespace VinterProjekt_3an
 
         public Bullet(float x, float y)
         {
-            target = Raylib.GetMousePosition();
+            target = Raylib.GetMousePosition();   //tar mus positionen 
             bulletPos = new Vector2(x, y);
 
-            Vector2 bulletDiff = mousePos - bulletPos;
+            Vector2 bulletDiff = target - bulletPos; // gör så att kulan rör sig mot där musen var när man tryckte SPACE
             movement = Vector2.Normalize(bulletDiff);
         }
 
         public void Update()
         {
-            bulletPos += movement * 2.5f;
+            bulletPos += movement * 7.5f;
 
-            Vector2 distance = bulletPos - mousePos;
+            Vector2 distance = bulletPos - target;
             if (distance.Length() < 2)
             {
                 alive = false;
