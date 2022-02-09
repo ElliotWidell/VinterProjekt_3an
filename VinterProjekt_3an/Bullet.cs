@@ -24,9 +24,9 @@ namespace VinterProjekt_3an
             movement = Vector2.Normalize(bulletDiff);
         }
 
-        public void Update()
+        public void Update()    //uppdaterar rörelsen och om kulan ska vara kvar eller inte
         {
-            bulletPos += movement * 7.5f;
+            bulletPos += movement * 7.5f;     //movement
 
             Vector2 distance = bulletPos - target;
             if (distance.Length() < 2)
@@ -35,7 +35,7 @@ namespace VinterProjekt_3an
             }
         }
 
-        public void Draw()
+        public void Draw()    // ritar ut kulan
         {
             Raylib.DrawCircleV(bulletPos, 10, Color.GRAY);
 

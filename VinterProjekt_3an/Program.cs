@@ -96,6 +96,13 @@ namespace VinterProjekt_3an
                 }
 
 
+                if (mePlayer.isAlive == false)
+                {
+
+
+                    Raylib.DrawText("You Dead lol", 100, 600, 200, Color.BLACK);
+                }
+
 
 
 

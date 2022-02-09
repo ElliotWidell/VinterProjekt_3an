@@ -10,6 +10,8 @@ namespace VinterProjekt_3an
     {
 
         Random generator = new Random();
+        public int size = 40;
+        private Color color = Color.RED;
         public int rSide;
         public int spawnPosX;
         public int spawnPosY;
@@ -69,8 +71,7 @@ namespace VinterProjekt_3an
             difference = Vector2.Normalize(difference);
             position += difference * 1.5f;
 
-
-            Raylib.DrawCircleV(position, 40, Color.RED);
+            Raylib.DrawCircleV(position, size, color);
 
 
         }
