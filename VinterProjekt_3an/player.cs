@@ -10,6 +10,7 @@ namespace VinterProjekt_3an
         public float playerX = 800;
         public float playerY = 450;
 
+
         Vector2 mouseAimVector = new Vector2(0, 0);
         public Boolean isAlive = true;
 
@@ -26,7 +27,7 @@ namespace VinterProjekt_3an
         {
 
             Vector2 mouseAimVector = Raylib.GetMousePosition();   // tar musens position för att veta vart kulorna ska
-            Console.WriteLine(mouseAimVector);
+
 
 
 

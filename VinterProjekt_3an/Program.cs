@@ -12,6 +12,7 @@ namespace VinterProjekt_3an
 
 
             int difficulty = 100;
+            int score = 0;
 
             Player mePlayer = new Player();
             Enemy firstEnemy = new Enemy();
@@ -36,7 +37,11 @@ namespace VinterProjekt_3an
 
 
                     //kod för alla kulor
-
+                    if (mePlayer.isAlive)
+                    {
+                        score++;
+                    }
+                    Raylib.DrawText($"Score {score}", 20, 840, 40, Color.BLACK);
 
 
                     if (Raylib.IsKeyPressed(KeyboardKey.KEY_SPACE))     // skapar kulorna 
@@ -60,7 +65,8 @@ namespace VinterProjekt_3an
 
                     mePlayer.Update();    //kör update metoden så att karaktären flyttas varje frame
 
-                    int enemySpawnRate = generator.Next(0, difficulty);
+                    int enemySpawnRate = generator.Next(0, difficulty);  // generator som bestämer ett numer som kanske spawnar en fiende
+                    int enemyType = generator.Next(0, 10); // en generator som ger ett numer som bestämmer om det är en stor fiende eller en vanlig
 
 
 
@@ -82,7 +88,15 @@ namespace VinterProjekt_3an
                     if (enemySpawnRate == 1)
                     {
                         Console.WriteLine("Fungerar");      // kontrollerar hur ofta fiender spawnar
-                        new Enemy();
+                        Console.WriteLine(enemyType);
+                        if (enemyType == 1)
+                        {
+                            new BigEnemy();
+                        }
+                        else
+                        {
+                            new Enemy();
+                        }
                     }
 
 

@@ -9,8 +9,9 @@ namespace VinterProjekt_3an
     {
         public BigEnemy()
         {
-            Color color = Color.PURPLE;
-            int size = 100;
+            color = Color.PURPLE;
+            size = 60;
+
 
 
 

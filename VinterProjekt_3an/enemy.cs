@@ -11,7 +11,7 @@ namespace VinterProjekt_3an
 
         Random generator = new Random();
         public int size = 40;
-        private Color color = Color.RED;
+        protected Color color = Color.RED;
         public int rSide;
         public int spawnPosX;
         public int spawnPosY;
