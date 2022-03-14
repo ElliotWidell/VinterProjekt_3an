@@ -32,10 +32,17 @@ namespace VinterProjekt_3an
 
 
             Vector2 playerPos = new Vector2(playerX, playerY);
-            if (Raylib.CheckCollisionCircles(playerPos, 40, Enemy.enemies[0].position, 40))   // Kollar collision
+            foreach (Enemy enemy in Enemy.enemies)
             {
-                isAlive = false;
+                if (Raylib.CheckCollisionCircles(playerPos, 40, enemy.position, 40))   // Kollar collision
+                {
+                    isAlive = false;
+                }
+
             }
+
+
+
 
 
 

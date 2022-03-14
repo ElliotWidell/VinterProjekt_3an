@@ -33,6 +33,18 @@ namespace VinterProjekt_3an
             {
                 alive = false;
             }
+
+
+            for (int i = 0; i < Enemy.enemies.Count; i++)
+            {
+                if (Raylib.CheckCollisionCircles(bulletPos, 10, Enemy.enemies[i].position, 45))
+                {
+
+                    alive = false;
+
+                }
+
+            }
         }
 
         public void Draw()    // ritar ut kulan

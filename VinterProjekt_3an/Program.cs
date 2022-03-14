@@ -56,7 +56,7 @@ namespace VinterProjekt_3an
                         e.Draw();
                     }
 
-
+                    bullets.RemoveAll(b => b.alive == false);
 
 
 
