@@ -41,6 +41,7 @@ namespace VinterProjekt_3an
                 {
 
                     alive = false;
+                    Enemy.enemies[i].hp -= 50;
 
                 }
 

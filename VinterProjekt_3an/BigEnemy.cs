@@ -11,6 +11,7 @@ namespace VinterProjekt_3an
         {
             color = Color.PURPLE;
             size = 60;
+            hp = 200;
 
 
 

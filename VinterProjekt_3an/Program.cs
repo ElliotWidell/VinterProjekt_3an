@@ -15,7 +15,7 @@ namespace VinterProjekt_3an
             int score = 0;
 
             Player mePlayer = new Player();
-            Enemy firstEnemy = new Enemy();
+
             List<Bullet> bullets = new List<Bullet>();   // listor över alla kulor
 
             Random generator = new Random();
@@ -83,7 +83,9 @@ namespace VinterProjekt_3an
                         e.Update(mePlayer.playerX, mePlayer.playerY);    //loop som uppdaterar infon om alla fiender
                     }
 
-                    firstEnemy.Update(mePlayer.playerX, mePlayer.playerY);
+                    Enemy.enemies.RemoveAll(e => e.isAlive == false);
+
+
 
                     if (enemySpawnRate == 1)
                     {

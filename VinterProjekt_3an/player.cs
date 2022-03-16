@@ -9,6 +9,7 @@ namespace VinterProjekt_3an
     {
         public float playerX = 800;
         public float playerY = 450;
+        public int deathTimer = 0;
 
 
         Vector2 mouseAimVector = new Vector2(0, 0);
@@ -28,7 +29,22 @@ namespace VinterProjekt_3an
 
             Vector2 mouseAimVector = Raylib.GetMousePosition();   // tar musens position för att veta vart kulorna ska
 
+            if (playerX > 1620 || playerX < -20 || playerY > 820 || playerY < -20)   //Kollar om spelaren är utanför skärmen
+            {
+                Raylib.DrawText("GO BACK OR YOU WILL DIE!!!", 150, 400, 100, Color.RED);
+                deathTimer++;               // ökar dödstimern
 
+            }
+            else
+            {
+                deathTimer = 0;     // om spelaren inte är utanför skärmen så startar timern om
+            }
+
+
+            if (deathTimer > 300)
+            {
+                isAlive = false;     //Dödar spelaren om timern når 300
+            }
 
 
             Vector2 playerPos = new Vector2(playerX, playerY);

@@ -17,6 +17,9 @@ namespace VinterProjekt_3an
         public int spawnPosY;
         public int spawnRate = 600;
 
+        public int hp = 100;
+        public bool isAlive = true;
+
         public static List<Enemy> enemies = new List<Enemy>();     //lista över alla fieder
 
 
@@ -62,6 +65,18 @@ namespace VinterProjekt_3an
 
         public void Update(float playerX, float playerY)
         {
+
+            if (hp < 1)
+            {
+                isAlive = false;   //Om hp är lägre än
+
+
+            }
+
+            // if (isAlive == false)
+            // {
+            //     Enemy.enemies.Remove(this);
+            // }
 
 
 
