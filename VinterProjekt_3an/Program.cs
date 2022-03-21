@@ -10,7 +10,8 @@ namespace VinterProjekt_3an
         static void Main(string[] args)
         {
 
-
+            int bulletCD = 30;
+            int bigBulletCD = 100;
             int difficulty = 100;
             int score = 0;
 
@@ -36,17 +37,30 @@ namespace VinterProjekt_3an
                 {
 
 
-                    //kod för alla kulor
                     if (mePlayer.isAlive)
                     {
-                        score++;
+                        score++;   //ökar score
                     }
                     Raylib.DrawText($"Score {score}", 20, 840, 40, Color.BLACK);
 
+                    //kod för alla kulor
 
-                    if (Raylib.IsKeyPressed(KeyboardKey.KEY_SPACE))     // skapar kulorna 
+                    bulletCD--;
+                    bigBulletCD--;      //gör så att cooldownen sänks
+
+                    if (Raylib.IsKeyPressed(KeyboardKey.KEY_SPACE) && bulletCD <= 0)     // skapar kulorna 
                     {
                         bullets.Add(new Bullet(mePlayer.playerX, mePlayer.playerY));
+                        bulletCD = 30;     //startar om cooldown timer
+
+                    }
+
+
+
+                    if (Raylib.IsKeyPressed(KeyboardKey.KEY_LEFT_SHIFT) && bigBulletCD <= 0)
+                    {
+                        bullets.Add(new BigBullet(mePlayer.playerX, mePlayer.playerY));
+                        bigBulletCD = 100;
 
                     }
 

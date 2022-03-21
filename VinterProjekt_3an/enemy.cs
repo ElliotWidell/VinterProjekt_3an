@@ -73,10 +73,6 @@ namespace VinterProjekt_3an
 
             }
 
-            // if (isAlive == false)
-            // {
-            //     Enemy.enemies.Remove(this);
-            // }
 
 
 

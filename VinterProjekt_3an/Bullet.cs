@@ -10,8 +10,10 @@ namespace VinterProjekt_3an
 
         public Vector2 bulletPos;
         public Vector2 target;
+        protected Color bulletColor = Color.GRAY;
+        protected int bulletSize = 10;
 
-        private Vector2 movement;
+        protected Vector2 movement;
 
         public bool alive = true;
 
@@ -24,7 +26,7 @@ namespace VinterProjekt_3an
             movement = Vector2.Normalize(bulletDiff);
         }
 
-        public void Update()    //uppdaterar rörelsen och om kulan ska vara kvar eller inte
+        public virtual void Update()    //uppdaterar rörelsen och om kulan ska vara kvar eller inte
         {
             bulletPos += movement * 7.5f;     //movement
 
@@ -50,7 +52,7 @@ namespace VinterProjekt_3an
 
         public void Draw()    // ritar ut kulan
         {
-            Raylib.DrawCircleV(bulletPos, 10, Color.GRAY);
+            Raylib.DrawCircleV(bulletPos, bulletSize, bulletColor);
 
         }
 
