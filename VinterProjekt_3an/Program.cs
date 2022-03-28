@@ -14,6 +14,7 @@ namespace VinterProjekt_3an
             int bigBulletCD = 100;
             int difficulty = 100;
             int score = 0;
+            string level = "menu";
 
             Player mePlayer = new Player();
 
@@ -33,7 +34,45 @@ namespace VinterProjekt_3an
             {
                 Raylib.BeginDrawing();
 
-                if (mePlayer.isAlive)
+                if (level == "menu")
+                {
+                    Raylib.ClearBackground(Color.BLUE);
+                    Raylib.DrawText("Zombie Survival", 200, 100, 150, Color.GREEN);
+                    Raylib.DrawText("Space = Shoot and W A S D to move", 90, 300, 80, Color.BLACK);
+                    Raylib.DrawText("Press space to choose difficulty", 100, 450, 80, Color.BLACK);
+
+
+                    if (Raylib.IsKeyPressed(KeyboardKey.KEY_SPACE))
+                    {
+                        level = "chooseDiff";
+                    }
+
+
+                }
+
+
+                if (level == "chooseDiff")
+                {
+                    Raylib.ClearBackground(Color.DARKBLUE);
+
+                    Rectangle ezRec = new Rectangle(400, 100, 800, 120);
+                    Rectangle midRec = new Rectangle(400, 250, 800, 120);
+                    Rectangle hardRec = new Rectangle(400, 400, 800, 120);
+                    Rectangle insaneRec = new Rectangle(400, 550, 800, 120);
+                    Raylib.DrawRectangleRec(ezRec, Color.GREEN);
+                    Raylib.DrawRectangleRec(midRec, Color.YELLOW);
+                    Raylib.DrawRectangleRec(hardRec, Color.ORANGE);
+                    Raylib.DrawRectangleRec(insaneRec, Color.RED);
+                    Raylib.DrawText("Easy", 700, 120, 80, Color.BLACK);
+                    Raylib.DrawText("Medium", 700, 270, 80, Color.BLACK);
+                    Raylib.DrawText("Hard", 700, 420, 80, Color.BLACK);
+                    Raylib.DrawText("Filippino", 700, 570, 80, Color.BLACK);
+
+
+
+                }
+
+                if (mePlayer.isAlive && level == "inGame")
                 {
 
 
@@ -79,8 +118,6 @@ namespace VinterProjekt_3an
 
                     mePlayer.Update();    //kör update metoden så att karaktären flyttas varje frame
 
-                    int enemySpawnRate = generator.Next(0, difficulty);  // generator som bestämer ett numer som kanske spawnar en fiende
-                    int enemyType = generator.Next(0, 10); // en generator som ger ett numer som bestämmer om det är en stor fiende eller en vanlig
 
 
 
@@ -99,6 +136,8 @@ namespace VinterProjekt_3an
 
                     Enemy.enemies.RemoveAll(e => e.isAlive == false);
 
+                    int enemySpawnRate = generator.Next(0, difficulty);  // generator som bestämer ett numer som kanske spawnar en fiende
+                    int enemyType = generator.Next(0, 10); // en generator som ger ett numer som bestämmer om det är en stor fiende eller en vanlig
 
 
                     if (enemySpawnRate == 1)
