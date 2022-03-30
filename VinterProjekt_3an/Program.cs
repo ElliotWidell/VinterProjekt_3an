@@ -13,6 +13,7 @@ namespace VinterProjekt_3an
             int bulletCD = 30;
             int bigBulletCD = 100;
             int difficulty = 100;
+            int enemyTypeDifficulty = 10;
             int score = 0;
             string level = "menu";
 
@@ -21,6 +22,12 @@ namespace VinterProjekt_3an
             List<Bullet> bullets = new List<Bullet>();   // listor över alla kulor
 
             Random generator = new Random();
+
+            DifficultyScreen difficultyScreen = new DifficultyScreen();
+            Level ingameScreen = new Level();
+            MenuScreen firstMenuScreen = new MenuScreen();
+
+            Screen currentScreen = difficultyScreen;
 
 
 
@@ -34,43 +41,96 @@ namespace VinterProjekt_3an
             {
                 Raylib.BeginDrawing();
 
-                if (level == "menu")
+
+                // Raylib.ClearBackground(Color.BLUE);
+                // Raylib.DrawText("Zombie Survival", 200, 100, 150, Color.GREEN);
+                // Raylib.DrawText("Space = Shoot and W A S D to move", 90, 300, 80, Color.BLACK);
+                // Raylib.DrawText("Press space to choose difficulty", 100, 450, 80, Color.BLACK);
+
+
+                // if (Raylib.IsKeyPressed(KeyboardKey.KEY_SPACE))
+                // {
+                //     level = "chooseDiff";
+                // }
+
+
+
+
+                string result = currentScreen.Update();
+
+                if (result == "ingame")
                 {
-                    Raylib.ClearBackground(Color.BLUE);
-                    Raylib.DrawText("Zombie Survival", 200, 100, 150, Color.GREEN);
-                    Raylib.DrawText("Space = Shoot and W A S D to move", 90, 300, 80, Color.BLACK);
-                    Raylib.DrawText("Press space to choose difficulty", 100, 450, 80, Color.BLACK);
+                    currentScreen = ingameScreen;
+                }
+                else if (result == "menu")
+                {
 
-
-                    if (Raylib.IsKeyPressed(KeyboardKey.KEY_SPACE))
-                    {
-                        level = "chooseDiff";
-                    }
-
-
+                    currentScreen = MenuScreen;
                 }
 
 
-                if (level == "chooseDiff")
-                {
-                    Raylib.ClearBackground(Color.DARKBLUE);
-
-                    Rectangle ezRec = new Rectangle(400, 100, 800, 120);
-                    Rectangle midRec = new Rectangle(400, 250, 800, 120);
-                    Rectangle hardRec = new Rectangle(400, 400, 800, 120);
-                    Rectangle insaneRec = new Rectangle(400, 550, 800, 120);
-                    Raylib.DrawRectangleRec(ezRec, Color.GREEN);
-                    Raylib.DrawRectangleRec(midRec, Color.YELLOW);
-                    Raylib.DrawRectangleRec(hardRec, Color.ORANGE);
-                    Raylib.DrawRectangleRec(insaneRec, Color.RED);
-                    Raylib.DrawText("Easy", 700, 120, 80, Color.BLACK);
-                    Raylib.DrawText("Medium", 700, 270, 80, Color.BLACK);
-                    Raylib.DrawText("Hard", 700, 420, 80, Color.BLACK);
-                    Raylib.DrawText("Filippino", 700, 570, 80, Color.BLACK);
 
 
+                // if (level == "chooseDiff")
+                // {
+                //     difficultyScreen.Update();
 
-                }
+                //     Raylib.ClearBackground(Color.DARKBLUE);
+
+                //     Rectangle ezRec = new Rectangle(400, 100, 800, 120);
+                //     Rectangle midRec = new Rectangle(400, 250, 800, 120);
+                //     Rectangle hardRec = new Rectangle(400, 400, 800, 120);
+                //     Rectangle insaneRec = new Rectangle(400, 550, 800, 120);
+                //     Raylib.DrawRectangleRec(ezRec, Color.GREEN);
+                //     Raylib.DrawRectangleRec(midRec, Color.YELLOW);
+                //     Raylib.DrawRectangleRec(hardRec, Color.ORANGE);
+                //     Raylib.DrawRectangleRec(insaneRec, Color.RED);
+                //     Raylib.DrawText("Easy", 700, 120, 80, Color.BLACK);
+                //     Raylib.DrawText("Medium", 700, 270, 80, Color.BLACK);
+                //     Raylib.DrawText("Hard", 700, 420, 80, Color.BLACK);
+                //     Raylib.DrawText("Turkish", 700, 570, 80, Color.BLACK);
+
+                //     Vector2 mousePos = Raylib.GetMousePosition();
+
+                //     bool ezCollition = Raylib.CheckCollisionPointRec(mousePos, ezRec);
+                //     bool midCollition = Raylib.CheckCollisionPointRec(mousePos, midRec);
+                //     bool hardCollition = Raylib.CheckCollisionPointRec(mousePos, hardRec);
+                //     bool insaneCollition = Raylib.CheckCollisionPointRec(mousePos, insaneRec);
+
+                //     bool mouseDown = Raylib.IsKeyDown(KeyboardKey.KEY_SPACE);
+
+                //     if (ezCollition && mouseDown)
+                //     {
+                //         difficulty = 200;
+                //         level = "inGame";
+
+                //     }
+
+                //     if (midCollition && mouseDown)
+                //     {
+                //         difficulty = 100;
+                //         level = "inGame";
+
+                //     }
+
+                //     if (hardCollition && mouseDown)
+                //     {
+                //         difficulty = 50;
+                //         level = "inGame";
+
+                //     }
+
+                //     if (insaneCollition && mouseDown)
+                //     {
+                //         difficulty = 50;
+                //         enemyTypeDifficulty = 2;
+                //         level = "inGame";
+
+                //     }
+
+
+
+                // }
 
                 if (mePlayer.isAlive && level == "inGame")
                 {
@@ -137,7 +197,7 @@ namespace VinterProjekt_3an
                     Enemy.enemies.RemoveAll(e => e.isAlive == false);
 
                     int enemySpawnRate = generator.Next(0, difficulty);  // generator som bestämer ett numer som kanske spawnar en fiende
-                    int enemyType = generator.Next(0, 10); // en generator som ger ett numer som bestämmer om det är en stor fiende eller en vanlig
+                    int enemyType = generator.Next(0, enemyTypeDifficulty); // en generator som ger ett numer som bestämmer om det är en stor fiende eller en vanlig
 
 
                     if (enemySpawnRate == 1)
