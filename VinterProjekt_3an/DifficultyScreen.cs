@@ -34,21 +34,21 @@ public class DifficultyScreen : Screen
         if (ezCollition && mouseDown)
         {
             difficulty = 200;
-            return "ingame";
+            return "gameBegin";
 
         }
 
         if (midCollition && mouseDown)
         {
             difficulty = 100;
-            return "ingame";
+            return "gameBegin";
 
         }
 
         if (hardCollition && mouseDown)
         {
             difficulty = 50;
-            return "ingame";
+            return "gameBegin";
 
         }
 
@@ -56,11 +56,11 @@ public class DifficultyScreen : Screen
         {
             difficulty = 50;
             // enemyTypeDifficulty = 2;
-            return "ingame";
+            return "gameBegin";
 
         }
 
-        return "";
+        return "chooseDiff";
     }
 
 }

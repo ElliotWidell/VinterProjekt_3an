@@ -27,7 +27,8 @@ namespace VinterProjekt_3an
             Level ingameScreen = new Level();
             MenuScreen firstMenuScreen = new MenuScreen();
 
-            Screen currentScreen = difficultyScreen;
+            Screen currentScreen = firstMenuScreen;
+
 
 
 
@@ -65,7 +66,18 @@ namespace VinterProjekt_3an
                 else if (result == "menu")
                 {
 
-                    currentScreen = MenuScreen;
+                    currentScreen = firstMenuScreen;
+                }
+                else if (result == "chooseDiff")
+                {
+
+                    currentScreen = difficultyScreen;
+
+                }
+                else if (result == "gameBegin")
+                {
+
+
                 }
 
 

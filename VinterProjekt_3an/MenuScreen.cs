@@ -23,7 +23,7 @@ namespace VinterProjekt_3an
                 return "chooseDiff";
             }
 
-
+            return "MenueScreen";
 
 
         }
